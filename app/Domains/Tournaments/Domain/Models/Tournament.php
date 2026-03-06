@@ -15,6 +15,11 @@ class Tournament extends Model
 
   protected $fillable = ['name', 'season', 'starts_on', 'ends_on', 'status'];
 
+  protected $casts = [
+    'starts_on' => 'date',
+    'ends_on'   => 'date',
+  ];
+
   public function disciplines(): HasMany
   {
     return $this->hasMany(Discipline::class);
